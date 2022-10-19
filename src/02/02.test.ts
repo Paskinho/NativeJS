@@ -1,9 +1,12 @@
+import {CityType} from "./02_02";
+
 let city: CityType;
 
 beforeEach(() => {
     city = {
         title: "New York",
-        houses: [],
+        houses: [
+            {buildedAt: 2012, repaired: false, address: {number: 100, street: {title: 'White street'}}],
         governmentBuildings: [],
         citizensNumber: 1000000
     }
