@@ -12,6 +12,8 @@ beforeEach(() => {
     }
 })
 
+
+
 // 01. создайте тип CityType
 // 02. заполните объект city, чтобы тесты ниже прошли
 test("test city should contains 3 houses", () => {
