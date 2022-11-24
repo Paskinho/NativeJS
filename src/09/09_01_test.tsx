@@ -50,7 +50,7 @@ test ('reference type test', ()=> {
 
     const address =
         {
-            title = "Minsk"
+            title : "Minsk"
         }
 
     let users = [
