@@ -6,16 +6,32 @@ function increaseAge (u: UserType) {
 type UserType = {
     name: string
     age: number
+    address: {title: string}
 }
 
 
 
 
-test ('big test', ()=> {
-    const user = {
+test ('reference type test', ()=> {
+    let users = [
+        {
         name: 'Dimych',
         age: 32
-    }
+    },
+        {
+            name: 'Dimych',
+            age: 32
+        }
+
+    ]
+
+    let admins = users
+
+    admins.push({name: "Bandyugan", age: 10})
+
+    expect(users[2]).toEqual({name: "Bandyugan", age: 10})
+
+
     increaseAge(user);
 
     expect(user.age).toBe(33)
@@ -28,3 +44,29 @@ test ('big test', ()=> {
 
 
     })
+
+
+test ('reference type test', ()=> {
+
+    const address =
+        {
+            title = "Minsk"
+        }
+
+    let users = [
+        {
+            name: 'Dimych',
+            age: 32,
+            address: address
+        },
+        {
+            name: 'Dimych',
+            age: 32,
+            address: address
+        }
+
+    ]
+
+
+}
+)
