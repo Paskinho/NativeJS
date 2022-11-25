@@ -21,6 +21,15 @@ export type MySkillsType = {
     skills: Array<number>
 }
 
+export type WithCompaniesType = {
+    companies: Array<CompanyType>
+}
+
+type CompanyType = {
+    id: number,
+    title: string
+}
+
 
 export function makeHairstyle (u: UserType, power: number) {
     const copy = {
@@ -87,11 +96,18 @@ export function updateBook (u: UserWithLaptopType & UserWithBookType, changeBook
 
     }
 }
+export const updateSkills = (u: UserWithLaptopType & UserWithBookType & MySkillsType, oldSkill: number, newSkill: number) => ({
+    ...u,
+    skills: u.skills.map(b => b === oldSkill ? newSkill : b)
+})
 
-export function updateSkills (u: UserWithLaptopType & UserWithBookType & MySkillsType, oldSkill: number, newSkill: number) {
-    return {
-        ...u,
-        skills: u.skills.map(b => b === oldSkill ? newSkill : b)
 
-    }
-}
+export const removeBook = (u: UserWithLaptopType & UserWithBookType & MySkillsType, deleteBook: string) => ({
+    ...u,
+        books: u.books.filter(b => b !== deleteBook)
+})
+
+export const updateCompanyTitle =(u:WithCompaniesType, companyId: number, correctCompany: string) => ({
+    ...u,
+    companies: u.companies.map(b=> b.id === companyId ? correctCompany : b)
+})

@@ -1,10 +1,10 @@
 import {
     addNewBooksToUser,
-    moveUserToOtherHouse, MySkillsType,
-    updateBook, updateSkills,
+    moveUserToOtherHouse, MySkillsType, removeBook,
+    updateBook, updateCompanyTitle, updateSkills,
     UserType,
     UserWithBookType,
-    UserWithLaptopType
+    UserWithLaptopType, WithCompaniesType
 } from "./10_01";
 import {makeHairstyle} from "./10_01";
 import {moveUser} from "./10_01";
@@ -194,3 +194,59 @@ test ('update books in user', ()=> {
 
 })
 
+
+test ('remove js book', ()=> {
+    let user: UserWithLaptopType & UserWithBookType & MySkillsType =
+        {
+            name: 'Dimych',
+            hair: 32,
+            address: {
+                city: "Minsk",
+                house: 14
+            },
+            laptop: {
+                title: "ZenBook"
+            },
+            books : ["css", "html", "js", "react"],
+            skills: [25,50,75,100]
+
+        }
+
+    const userCopy=removeBook(user,"js")
+
+
+    expect(user).not.toBe(userCopy)
+    expect(user.laptop).toBe(userCopy.laptop)
+    expect(user.address.house).toBe(userCopy.address.house)
+    expect(user.books).not.toBe(userCopy.books)
+    expect(userCopy.books[2]).toBe("react")
+
+
+})
+
+test ('companies', ()=> {
+    let user: UserWithLaptopType & WithCompaniesType=
+        {
+            name: 'Dimych',
+            hair: 32,
+            address: {
+                city: "Minsk",
+                house: 14
+            },
+            laptop: {
+                title: "ZenBook"
+            },
+          companies: [
+              {id: 1, title: "Епам"},
+              {id: 2, title: "IT-Incubator"}
+          ]
+        }
+
+    const userCopy = updateCompanyTitle(user,1,"Epam")
+    expect(user).not.toBe(userCopy)
+    expect(user.laptop).toBe(userCopy.laptop)
+    expect(user.companies).not.toBe(userCopy.address)
+    expect(user.companies[0].title).toBe("Epam")
+
+
+})
