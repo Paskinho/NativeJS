@@ -17,6 +17,10 @@ export type UserWithBookType = {
     books: Array<string>
 }
 
+export type MySkillsType = {
+    skills: Array<number>
+}
+
 
 export function makeHairstyle (u: UserType, power: number) {
     const copy = {
@@ -54,11 +58,13 @@ export function moveUserToOtherHouse (u: UserWithLaptopType & UserWithBookType, 
     return copyMoveUser
 }
 
+export function addNewBooksToUser (u: UserWithLaptopType & UserWithBookType, newBooks : Array<string>) {
+    return  {
+        ...u,
+        books: [...u.books, newBooks]
+        }
 
-
-
-
-
+}
 
 
 export function upgradeUserLaptop (u: UserWithLaptopType, title:string ) {
@@ -73,3 +79,19 @@ export function upgradeUserLaptop (u: UserWithLaptopType, title:string ) {
     return copyLaptop
 }
 
+
+export function updateBook (u: UserWithLaptopType & UserWithBookType, changeBook: string, newBook: string) {
+    return {
+        ...u,
+        books: u.books.map(b => b === changeBook ? newBook : b)
+
+    }
+}
+
+export function updateSkills (u: UserWithLaptopType & UserWithBookType & MySkillsType, oldSkill: number, newSkill: number) {
+    return {
+        ...u,
+        skills: u.skills.map(b => b === oldSkill ? newSkill : b)
+
+    }
+}
