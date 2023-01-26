@@ -109,5 +109,5 @@ export const removeBook = (u: UserWithLaptopType & UserWithBookType & MySkillsTy
 
 export const updateCompanyTitle =(u:WithCompaniesType, companyId: number, correctCompany: string) => ({
     ...u,
-    companies: u.companies.map(b=> b.id === companyId ? correctCompany : b)
+    companies: u.companies.map(b=> b.id === companyId ? {...b, title: correctCompany} : b)
 })
