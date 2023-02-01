@@ -1,8 +1,18 @@
-const resolvedPromise = Promise.resolve([{}])
-console.log(resolvedPromise)
+function wait(ms) {
+    return new Promise((res)=>[
+        setTimeout(()=>{
+            res()
+        },ms)
+    ])
+}
 
-const rejectedPromise= Promise.reject({message: "Some error"})
-console.log(resolvedPromise)
+async function run() {
+    await wait(1000)
+    console.log(1)
+    await wait(1000)
+    console.log(2)
+    await wait(1000)
+    console.log(3)
+}
 
-rejectedPromise.then(data => console.log(data)).
-    catch(error=> console.log(error))
+run()
