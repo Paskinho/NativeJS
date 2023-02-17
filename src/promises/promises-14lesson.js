@@ -10,4 +10,11 @@ let axios = {
 }
 
 
-axios.get().then(data=>console.log(data))
+axios.get().
+then(data=>console.log(data))
+.then(()=>{console.log("1")})
+.then(()=>{console.log("2")})
+
+
+
+// .catch((data)=> console.error(data))
