@@ -1,10 +1,13 @@
-let pr = new Promise ((resolve, reject) => {
-    setTimeout(()=> {
-        resolve()
-    },3000)
+let axios = {
+    get() {
+        let pr = new Promise ((resolve, reject) => {
+            setTimeout(()=> {
+                resolve('YoYoYo')
+            },3000)
+        });
+        return pr
+    }
+}
 
-});
 
-
-
-console.log(pr.status)
+axios.get().then(data=>console.log(data))
