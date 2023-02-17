@@ -10,10 +10,16 @@ let axios = {
 }
 
 
-axios.get().
-then(data=>console.log(data))
-.then(()=>{console.log("1")})
-.then(()=>{console.log("2")})
+let promise = axios.get();
+
+promise.then((message)=> {
+    console.log(message)
+})
+    .then()
+    .then()
+    .then()
+    .then();
+
 
 
 
