@@ -17,6 +17,16 @@ promise.then((data)=> {
     .then()
     .then();
 
+let makeRequest = async () => {
+
+let data = await fetch ('microsoft');
+console.log(data);
+data = await fetch ('google');
+console.log(data);
+data = await fetch ('it-kamasutra');
+console.log(data);
+}
+
 
 
 
