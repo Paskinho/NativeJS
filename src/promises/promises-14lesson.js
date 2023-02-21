@@ -27,6 +27,19 @@ data = await fetch ('it-kamasutra');
 console.log(data);
 }
 
+makeRequest()
+
+
+const makeRequestAtOneMoment = () => {
+    let p1 = fetch('microsoft')
+    let p2 = fetch('google')
+    let p3 = fetch('it-kamasutra')
+
+    Promise.all([p1,p2,p3]).then(data => {
+        console.log('all finished')
+    })
+}
+
 
 
 
