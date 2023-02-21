@@ -9,8 +9,8 @@ let axios = {
 }
 let promise = axios.get();
 
-promise.then((message)=> {
-    return 1
+promise.then((data)=> {
+    return data.message
 })
     .then((message)=> console.log(message))
     .then()
