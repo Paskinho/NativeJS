@@ -13,4 +13,15 @@ _counter: {
 
 console.log(man.getCounter())
 
-const getCounter = man.getCounter()
+
+class Man {
+    constructor(props) {
+        this.props = props
+    }
+    render(){
+        console.log(this.props.age)
+    }
+}
+
+const man1 = new Man({age: 10})
+man1.render()
